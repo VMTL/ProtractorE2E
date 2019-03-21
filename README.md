@@ -40,7 +40,7 @@ npm install jsonpath --save-dev
 #### Run
 ```sh
 webdriver-manager start --seleniumPort ####
-$ cd projectDirectpry\npm test
+cd projectDirectory\npm test
 ```
 
 ### Reporting

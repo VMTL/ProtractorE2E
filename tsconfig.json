@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+	"types": [
+			    "jasmine",
+			    "node"
+		    ],
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitReturns": false,
+    "strictNullChecks": false,
+    "target": "es2017",
+		"skipDefaultLibCheck": false,
+		"skipLibCheck": false,
+		"suppressExcessPropertyErrors": false,
+		"suppressImplicitAnyIndexErrors": false,
+		"allowUnusedLabels": false
+  },
+  "compileOnSave": true
+}

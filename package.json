@@ -1,0 +1,26 @@
+{
+  "author": "VMTL",
+  "name": "ProtractorE2E",
+  "version": "0.0.0",
+  "description": "Generated with typescript.java",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jasmine": "^3.3.10",
+    "@types/jasmine-data-provider": "^2.2.1",
+    "@types/node": "^11.10.5",
+    "http": "0.0.0",
+    "jasmine": "^3.3.1",
+    "jasmine-data-provider": "^2.2.0",
+    "jasmine-reporters": "^2.3.2",
+    "jsonpath": "^1.0.1",
+    "protractor": "^5.4.2",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "request-promise": "^4.2.4",
+    "supertest": "^4.0.0",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "test": "protractor confProtractor.js"
+  }
+}

@@ -1,15 +1,20 @@
-# Protractor e2e and API test automation with Typescript
+# Protractor / Appium e2e and API test automation with Typescript
 
-This is a sample test automation project covering UI and API tests
+This is a sample test automation project covering UI for desktop and mobile and API tests
 
 ## Tools and libraries used
 
   - Protractor
+  - Selenium WebDriver
   - Jasmine
   - HTTP
   - Request
   - JSONpath
-  - Protractor-Jasmine reporter
+  - Protractor-Jasmine reporter   
+  - Appium
+  - Android Studio
+  - XCode
+
 
 ### Installation
 
@@ -37,10 +42,25 @@ npm install request-promise --save-dev
 npm install jsonpath --save-dev
 ```
 
+### Appium Installation
+
+Appium can be installed in different ways. The easiest way is to install through webdriver-manager, however webdriver-manager no longer supports appium.
+NOTE: If you install appium and Android SDK separately make sure you have the same versions of ChromeDriver on both systems 
+In odrder to run Appium for iOS there should be Xcode installed on MacOS / iOs (virtual MacOS / iOS)
+
+```sh
+webdriver-manager update --android          //This will install Appium and Android SDK as well. To install specific avd: --android-api-levels 26
+npm install -g appium-doctor                //This is to check installed appium dependencies
+npm install wd --save-dev                   //Install WD and WD-Bridge in order to get extended commands list for mobile devices
+npm install wd-bridge --save-dev
+```
+
 #### Run
 ```sh
-webdriver-manager start --seleniumPort ####
-cd projectDirectory\npm test
+webdriver-manager start --seleniumPort #### //add --android to run webdriver-manager based Android SDK version
+appium                                      //To run Appium from standalone Appium version
+cd projectDirectory\npm test                //Runs pc based tests
+cd projectDirectory\npm run-script appium   //Runs Appium based tests on emaluted devices
 ```
 
 ### Reporting

@@ -19,14 +19,18 @@
     "request-promise": "^4.2.4",
     "supertest": "^4.0.0",
     "ts-node": "^8.0.3",
-    "typescript": "^3.3.3333",
+    "typescript": "^3.5.2",
     "wd": "^1.11.1",
     "wd-bridge": "0.0.2",
     "webdriver-js-extender": "^2.1.0"
   },
   "scripts": {
     "test": "protractor confProtractor.js",
-    "appium": "protractor confAppium.js"
+    "appium": "protractor confAppium.js",
+    "update": "webdriver-manager update",
+    "start": "webdriver-manager start --seleniumPort 4445 --detach"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jasmine-allure-reporter": "^1.0.2"
+  }
 }

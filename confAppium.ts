@@ -51,6 +51,12 @@ exports.config = {
            //wdBridge.initFromProtractor(exports.config);
            require('ts-node').register({ project: 'tsconfig.json' });
            jasmine.getEnv().addReporter(myCustomReporter);
+           
+           var AllureReporter = require('jasmine-allure-reporter');
+           jasmine.getEnv().addReporter(new AllureReporter({
+               resultsDir: './allure-results'
+           }));
+           
            var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
            return browser.getProcessedConfig().then(function(config) {
                var browserName = '_' + config.capabilities.platformName + '_' + config.capabilities.platformVersion

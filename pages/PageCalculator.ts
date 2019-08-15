@@ -3,7 +3,9 @@ import { browser, element, by } from 'protractor';
 export class PageCalculator{
     
     goToHomePage(){
+        browser.waitForAngularEnabled(false);
         browser.get('http://juliemr.github.io/protractor-demo/');
+        browser.waitForAngularEnabled(true);
     }
 
     getTittle() {

@@ -5,10 +5,10 @@
   "description": "Generated with typescript.java",
   "license": "MIT",
   "devDependencies": {
-    "@types/jasmine": "^3.3.10",
+    "@types/jasmine": "^3.4.0",
     "@types/jasmine-data-provider": "^2.2.1",
-    "@types/node": "^11.10.5",
-    "appium": "^1.12.0",
+    "@types/node": "^11.13.19",
+    "appium": "^1.14.1",
     "http": "0.0.0",
     "jasmine": "^3.3.1",
     "jasmine-data-provider": "^2.2.0",
@@ -19,14 +19,14 @@
     "request-promise": "^4.2.4",
     "supertest": "^4.0.0",
     "ts-node": "^8.0.3",
-    "typescript": "^3.5.2",
-    "wd": "^1.11.1",
+    "typescript": "^3.5.3",
+    "wd": "^1.11.3",
     "wd-bridge": "0.0.2",
     "webdriver-js-extender": "^2.1.0"
   },
   "scripts": {
-    "test": "protractor confProtractor.js",
-    "appium": "protractor confAppium.js",
+    "test": "protractor ./Confs/confProtractor.js",
+    "appium": "protractor ./Confs/confAppium.js",
     "update": "webdriver-manager update",
     "start": "webdriver-manager start --seleniumPort 4445 --detach"
   },

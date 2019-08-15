@@ -1,5 +1,5 @@
 import { browser } from "protractor";
-import { myCustomReporter } from "./helpers/customReporter";
+import { myCustomReporter } from "../helpers/customReporter";
 
 /*
 var wd = require('wd');
@@ -15,7 +15,8 @@ catch (ign) {
 exports.config = {
         framework: 'jasmine2',
         seleniumAddress: 'http://localhost:4723/wd/hub',
-        specs: ['./Specs/SpecCalculator.ts'],
+        specs: ['../Specs/SpecCalculator.ts'],
+        SELENIUM_PROMISE_MANAGER: false,
         capabilities:
             { 
                 avd: 'Pixel_2_XL_API_27',

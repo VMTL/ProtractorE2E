@@ -1,11 +1,12 @@
 import { browser } from "protractor";
-import { myCustomReporter } from "./helpers/customReporter";
+import { myCustomReporter } from "../helpers/customReporter";
 
 exports.config = {
         framework: 'jasmine2',
         directConnect: false, // set TRUE to run without SeleniumServer
         seleniumAddress: 'http://localhost:4445/wd/hub',
-        specs: ['./Specs/SpecCalculator.ts', './Specs/API_test.ts'],
+        specs: ['../Specs/SpecCalculator.ts', '../Specs/API_test.ts'],
+        SELENIUM_PROMISE_MANAGER: false,
         multiCapabilities: [
                             { browserName: 'firefox',
                                 'moz:firefoxOptions': {

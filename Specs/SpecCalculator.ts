@@ -6,28 +6,28 @@ let Jasmine = require('jasmine');
 
 describe('Protractor sample test', function() {
  
-    beforeEach(function() {
-        calcPage.goToHomePage();
+    beforeEach(async function() {
+        await calcPage.goToHomePage();
     });
 
-    it('Should have a title', function() {
-        expect<any>(calcPage.getTittle()).toEqual('Super Calculator');
+    it('Should have a title', async function() {
+        expect<any>(await calcPage.getTittle()).toEqual('Super Calculator');
     });
   
     using(multipleProvider, function(data: any){
-        it('Should calculate ' + data.c + ' of ' + data.a + ' and ' + data.b, function() {
-            calcPage.getFisrtNumber().sendKeys(data.a);
-            calcPage.getSecondNumber().sendKeys(data.b);
-            calcPage.getOperatorButton().$('[value="'+ data.c +'"]').click();
-            calcPage.getGoButton().click();
-            expect<any>(calcPage.getLatestResult().getText()).toEqual((data.expected).toString());
+        it('Should calculate ' + data.c + ' of ' + data.a + ' and ' + data.b, async function() {
+            await calcPage.getFisrtNumber().sendKeys(data.a);
+            await calcPage.getSecondNumber().sendKeys(data.b);
+            await calcPage.getOperatorButton().$('[value="'+ data.c +'"]').click();
+            await calcPage.getGoButton().click();
+            expect<any>(await calcPage.getLatestResult().getText()).toEqual((data.expected).toString());
         });
     });
     
 
-    it('Should read the value from an input', function() {
-        calcPage.getFisrtNumber().sendKeys(1);
-        expect<any>(calcPage.getFisrtNumber().getAttribute('value')).toEqual('1');
+    it('Should read the value from an input', async function() {
+        await calcPage.getFisrtNumber().sendKeys(1);
+        expect<any>(await calcPage.getFisrtNumber().getAttribute('value')).toEqual('1');
     });
     
     function multipleProvider() {

@@ -10,7 +10,8 @@ This is a sample test automation project covering UI for desktop and mobile and 
   - HTTP
   - Request
   - JSONpath
-  - Protractor-Jasmine reporter   
+  - Protractor-Jasmine reporter
+  - Allure Reports
   - Appium
   - Android Studio
   - XCode
@@ -19,27 +20,11 @@ This is a sample test automation project covering UI for desktop and mobile and 
 ### Installation
 
 It requires [Node.js](https://nodejs.org/) to run.
-The project can be imported to Eclipse or any other IDE (Angular plugin is required)
-
-Install the dependencies and devDependencies and start the server.
+Clone the repo and Install the dependencies and devDependencies and start the server.
 
 ```sh
-npm install -g protractor
-npm install typescript --save-dev
-webdriver-manager update
-npm install jasmine --save-dev
-npm install --save-dev jasmine-reporters@^2.0.0
-npm install @types/jasmine --save-dev
-npm install @types/node --save-dev
-npm install ts-node --save-dev
-npm install jasmine2-protractor-utils --save-dev
-npm install protractor-html-reporter-2 --save-dev
-npm install protractor-jasmine2-html-reporter --save-dev
-npm install jasmine-data-provider --save-dev
-npm install @types/jasmine-data-provider --save-dev
-npm install http --save-dev
-npm install request-promise --save-dev
-npm install jsonpath --save-dev
+git clone git@github.com:https:VMTL/ProtractorE2E.git
+npm install
 ```
 
 ### Appium Installation
@@ -57,10 +42,9 @@ npm install wd-bridge --save-dev
 
 #### Run
 ```sh
-webdriver-manager start --seleniumPort #### //add --android to run webdriver-manager based Android SDK version
-appium                                      //To run Appium from standalone Appium version
-cd projectDirectory\npm test                //Runs pc based tests
-cd projectDirectory\npm run-script appium   //Runs Appium based tests on emaluted devices
+webdriver-manager start --seleniumPort 4445 --detach //starts detached selenium server on port 4445
+cd projectDirectory\npm test                         //Runs pc based tests
+cd projectDirectory\npm run-script appium            //Runs Appium based tests on emaluted devices
 ```
 
 ### Reporting

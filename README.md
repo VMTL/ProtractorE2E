@@ -23,7 +23,7 @@ It requires [Node.js](https://nodejs.org/) to run.
 Clone the repo and Install the dependencies and devDependencies and start the server.
 
 ```sh
-git clone git@github.com:https:VMTL/ProtractorE2E.git
+git clone git@github.com:VMTL/ProtractorE2E.git
 npm install
 ```
 

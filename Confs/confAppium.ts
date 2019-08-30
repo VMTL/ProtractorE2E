@@ -48,7 +48,7 @@ exports.config = {
            isVerbose: true
        },
       
-       onPrepare: function () {
+       onPrepare: () => {
            //wdBridge.initFromProtractor(exports.config);
            require('ts-node').register({ project: 'tsconfig.json' });
            jasmine.getEnv().addReporter(myCustomReporter);
@@ -59,7 +59,7 @@ exports.config = {
            }));
            
            var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
-           return browser.getProcessedConfig().then(function(config) {
+           return browser.getProcessedConfig().then((config) => {
                var browserName = '_' + config.capabilities.platformName + '_' + config.capabilities.platformVersion
                                + '_' + config.capabilities.deviceName;
                var jasmineReporter = new Jasmine2HtmlReporter({
@@ -70,7 +70,7 @@ exports.config = {
                    takeScreenshotsOnlyOnFailures: true,
                    fixedScreenshotName: false,
                    fileNamePrefix: browserName,
-                   modifyReportFileName: function(generatedFileName: string, suite: any) {
+                   modifyReportFileName: (generatedFileName: string, suite: any) => {
                        return browserName + '.' + generatedFileName;
                    }
                });

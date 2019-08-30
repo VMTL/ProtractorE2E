@@ -4,18 +4,22 @@ import { PageCalculator } from '../pages/PageCalculator';
 let calcPage = new PageCalculator();
 let Jasmine = require('jasmine');
 
-describe('Protractor sample test', function() {
+describe('Protractor sample test', () => {
  
-    beforeEach(async function() {
+    beforeEach(async () => {
         await calcPage.goToHomePage();
     });
+    
+    afterAll(async () => {
+        await calcPage.getBrowser().quit();
+    });
 
-    it('Should have a title', async function() {
-        expect<any>(await calcPage.getTittle()).toEqual('Super Calculator');
+    it('Should have a title', () => {
+        expect<any>(calcPage.getTitle()).toEqual('Super Calculator');
     });
   
-    using(multipleProvider, function(data: any){
-        it('Should calculate ' + data.c + ' of ' + data.a + ' and ' + data.b, async function() {
+    using(multipleProvider, (data: any) => {
+        it('Should calculate ' + data.c + ' of ' + data.a + ' and ' + data.b, async () => {
             await calcPage.getFisrtNumber().sendKeys(data.a);
             await calcPage.getSecondNumber().sendKeys(data.b);
             await calcPage.getOperatorButton().$('[value="'+ data.c +'"]').click();
@@ -25,7 +29,7 @@ describe('Protractor sample test', function() {
     });
     
 
-    it('Should read the value from an input', async function() {
+    it('Should read the value from an input', async () => {
         await calcPage.getFisrtNumber().sendKeys(1);
         expect<any>(await calcPage.getFisrtNumber().getAttribute('value')).toEqual('1');
     });

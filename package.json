@@ -8,7 +8,7 @@
     "@types/jasmine": "^3.4.0",
     "@types/jasmine-data-provider": "^2.2.1",
     "@types/node": "^11.13.19",
-    "appium": "^1.14.1",
+    "appium": "^1.14.2",
     "http": "0.0.0",
     "jasmine": "^3.3.1",
     "jasmine-data-provider": "^2.2.0",
@@ -28,9 +28,11 @@
     "test": "protractor ./Confs/confProtractor.js",
     "appium": "protractor ./Confs/confAppium.js",
     "update": "webdriver-manager update",
-    "start": "webdriver-manager start --seleniumPort 4445 --detach"
+    "start": "webdriver-manager start --seleniumPort 4445 --detach",
+    "stop": "webdriver-manager shutdown"
   },
   "dependencies": {
+    "html-dnd": "^1.2.1",
     "jasmine-allure-reporter": "^1.0.2"
   }
 }

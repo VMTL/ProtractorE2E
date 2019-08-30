@@ -1,34 +1,33 @@
-import { browser, element, by } from 'protractor';
+import { BasePage } from "./BasePage";
 
-export class PageCalculator{
+var bp = new BasePage();
+let url = 'http://juliemr.github.io/protractor-demo/'; 
+
+export class PageCalculator extends BasePage{
     
     goToHomePage(){
-        browser.waitForAngularEnabled(false);
-        browser.get('http://juliemr.github.io/protractor-demo/');
-        browser.waitForAngularEnabled(true);
+        bp.getBrowser().waitForAngularEnabled(false);
+        bp.browserNavigate().to(url);
+        bp.getBrowser().waitForAngularEnabled(true);
     }
-
-    getTittle() {
-        return browser.getTitle();
-    };
-
+    
     getFisrtNumber() {
-       return element(by.model('first'));
-    };
+        return bp.getElement(bp.getLocator().model('first'));
+    }
   
     getSecondNumber() {
-        return element(by.model('second'));
-    };
+        return bp.getElement(bp.getLocator().model('second'));
+    }
 
     getGoButton() {
-        return element(by.id('gobutton'));
-    };
+        return bp.getElement(bp.getLocator().id('gobutton'));
+    }
     
     getLatestResult() {
-        return element(by.binding('latest'));
-    };
+        return bp.getElement(bp.getLocator().binding('latest'));
+    }
     
     getOperatorButton() {
-        return element(by.model('operator'));
-    };
+        return bp.getElement(bp.getLocator().model('operator'));
+    }
 }

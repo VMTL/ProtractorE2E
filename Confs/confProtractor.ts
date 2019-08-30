@@ -5,17 +5,28 @@ exports.config = {
         framework: 'jasmine2',
         directConnect: false, // set TRUE to run without SeleniumServer
         seleniumAddress: 'http://localhost:4445/wd/hub',
-        specs: ['../Specs/SpecCalculator.ts', '../Specs/API_test.ts'],
+        specs: ['../Specs/SpecCalculator.ts', '../Specs/API_test.ts', '../Specs/SpecPrimeHome.ts'],
+        allScriptsTimeout: 50000,
         SELENIUM_PROMISE_MANAGER: false,
+        //rootElement: 'app-root',
+        useAllAngular2AppRoots: true,
         multiCapabilities: [
                             { browserName: 'firefox',
+                                shardTestFiles: true, //Restart a browser after each Spec
                                 'moz:firefoxOptions': {
-                                    args: ["--headless", "--disable-gpu", "--no-sandbox"]
+                                    args: ["--window-size=1920,1080",
+                                           "--headless",
+                                           "--disable-gpu",
+                                           "--no-sandbox"]
                                 }
                             },
-                            { browserName: 'chrome' ,    
+                            { browserName: 'chrome',
+                                shardTestFiles: true,  
                                 chromeOptions: {
-                                    args: ["--headless", "--disable-gpu", "--no-sandbox"]
+                                    args: ["--window-size=1920,1080",
+                                           "--headless",
+                                           "--disable-gpu",
+                                           "--no-sandbox"]
                                 }
                             }
        ],
@@ -27,7 +38,7 @@ exports.config = {
            isVerbose: true
        },
       
-       onPrepare: function () {
+       onPrepare: () => {
            require('ts-node').register({ project: 'tsconfig.json' });
            jasmine.getEnv().addReporter(myCustomReporter);
            
@@ -46,7 +57,7 @@ exports.config = {
            });*/
            
            var Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
-           return browser.getProcessedConfig().then(function(config) {
+           return browser.getProcessedConfig().then( (config) => {
                var browserName = config.capabilities.browserName;
                var jasmineReporter = new Jasmine2HtmlReporter({
                    consolidate: true,
@@ -57,7 +68,7 @@ exports.config = {
                    takeScreenshotsOnlyOnFailures: true,
                    fixedScreenshotName: false,
                    fileNamePrefix: browserName,
-                   modifyReportFileName: function(generatedFileName: string, suite: any) {
+                   modifyReportFileName: (generatedFileName: string, suite: any) => {
                        return browserName + '.' + generatedFileName;
                    }
                });
